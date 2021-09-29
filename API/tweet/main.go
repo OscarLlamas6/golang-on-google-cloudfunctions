@@ -19,7 +19,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func crearTweet(w http.ResponseWriter, r *http.Request) {
+func CrearTweet(w http.ResponseWriter, r *http.Request) {
 
 	type tweet struct {
 		Nombre     string   `json:"nombre"`
@@ -33,11 +33,6 @@ func crearTweet(w http.ResponseWriter, r *http.Request) {
 	type mensaje struct {
 		Mensaje string `json:"Mensaje"`
 		Status  int    `json:"Status"`
-	}
-
-	type notificacion struct {
-		Guardados     int `json:"guardados"`
-		TiempoDeCarga int `json:"tiempoDeCarga"`
 	}
 
 	var newTweet tweet
@@ -111,7 +106,7 @@ func crearTweet(w http.ResponseWriter, r *http.Request) {
 	/*----------------------------------------------*/
 
 	var newMensaje mensaje
-	newMensaje.Mensaje = "Nuevo elemento insertado correctamente desde Golang! :D"
+	newMensaje.Mensaje = "Nuevo elemento insertado correctamente desde Golang (Google Cloud Functions)! :D"
 	newMensaje.Status = 202
 
 	w.Header().Set("Content-Type", "application/json")
